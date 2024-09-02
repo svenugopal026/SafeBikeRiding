@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bike Speed Safety Check</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+        p {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+        .bike-animation {
+            margin-top: 20px;
+            width: 150px; /* Adjust size as needed */
+        }
+    </style>
+</head>
+<body>
+    <h1>Bike Speed Safety Check</h1>
+    <p>Enter your bike speed (in km/h):</p>
+    <input type="number" id="speedInput" placeholder="Enter speed">
+    <br>
+    <button onclick="checkSpeed()">Check Safety</button>
+    <p id="result"></p>
+
+    <!-- Display the animated PNG of the bike -->
+    <img src="bike-animation.png" alt="Bike Animation" class="bike-animation">
+
+    <script>
+        function checkSpeed() {
+            const speed = document.getElementById('speedInput').value;
+            const result = document.getElementById('result');
+            
+            if (speed >= 20 && speed <= 40) {
+                result.textContent = "Your speed is safe on Hyderabad roads.";
+                result.style.color = "green";
+            } else if (speed >= 50 && speed <= 60) {
+                result.textContent = "Warning: You are in the danger zone and may slip!";
+                result.style.color = "orange";
+            } else if (speed > 60) {
+                result.textContent = "Danger: You will slip and could die!";
+                result.style.color = "red";
+            } else {
+                result.textContent = "Please enter a valid speed.";
+                result.style.color = "black";
+            }
+        }
+    </script>
+</body>
+</html>
